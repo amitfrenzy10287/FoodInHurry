@@ -6,14 +6,54 @@
     left: 0;
     top: 0;
     z-index: 200;
-    background-color: white;
+    background-color: #9646ff;
     padding: 32px 16px;
     box-sizing: border-box;
-    transition: transform 0.3s ease-out;
+    transition: transform 0.2s ease-out;
 }
 
-@media (min-width: 500px) {
+.SideDrawerSubNav {
+    position: fixed;
+    width: 280px;
+    max-width: 70%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 200;
+    background-color: #9646ff;
+    padding: 32px 16px;
+    box-sizing: border-box;
+    transition: transform 0.2s ease-out;
+}
+
+.toggleLeft{
+    position:absolute;
+    top:10px;
+    right:10px;
+    width:50px; 
+    transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    border-radius: 50%;
+    flex: 0 0 auto;
+    color: rgba(0, 0, 0, 0.54);
+    padding: 7px;
+    overflow: visible;
+    font-size: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.toggleLeftIcon:before{
+    margin:6px;
+}
+.toggleLeft:hover{
+    background-color: rgba(0, 0, 0, 0.08); 
+}
+
+@media (min-width: 760px) {
     .SideDrawer {
+        display: none;
+    }
+    .SideDrawerSubNav {
         display: none;
     }
 }
@@ -23,6 +63,14 @@
 }
 
 .Close {
+    transform: translateX(-100%);
+} 
+
+.OpenSubNav {
+    transform: translateX(0);
+}
+
+.CloseSubNav {
     transform: translateX(-100%);
 }
 

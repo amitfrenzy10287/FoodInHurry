@@ -6,7 +6,6 @@
 }
 
 .NavigationItem a {
-    color: #8F5C2C;
     text-decoration: none;
     width: 100%;
     box-sizing: border-box;
@@ -16,10 +15,17 @@
 .NavigationItem a:hover,
 .NavigationItem a:active,
 .NavigationItem a.active {
-    color: #40A4C8;
+    color: #ffffff;
+    cursor: pointer;
 }
 
-@media (min-width: 500px) {
+@media (max-width: 760px){
+    .NavigationItem{
+        color:#ffffff;
+    }
+}
+
+@media (min-width: 760px) {
     .NavigationItem {
         margin: 0;
         display: flex;
@@ -27,19 +33,42 @@
         width: auto;
         align-items: center;
     }
-    
-    .NavigationItem a {
-        color: white;
-        height: 100%;
-        padding: 16px 10px;
-        border-bottom: 4px solid transparent;
-    }
-    
-    .NavigationItem a:hover,
+
+    /*.NavigationItem a:hover,
     .NavigationItem a:active,
     .NavigationItem a.active {
-        background-color: #9b0000;
-        border-bottom: 4px solid #40A4C8;
-        color: white;
+        color: #ffffff;
+        cursor: pointer;
+    }*/
+    
+    .NavigationItem a {
+        color: #fff !important;
+        padding: 0 17px;
+        min-width: 72px;
+        font-size: 18px;
+        transition: color .12s ease-in-out;
+        font-weight: 400;
+        font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+        border-radius: 3px 3px 0 0;
+        text-transform: initial;
+    } 
+    
+    .NavigationItem a.active {
+        cursor:pointer;
+        background-color: #ffffff;
+        line-height: 59px;
+        min-width: 120px; 
+        text-align: center;
+        border-radius: 3px 3px 0 0;
+        -webkit-transition: color .12s ease-in-out;
+        -o-transition: color .12s ease-in-out;
+        transition: color .12s ease-in-out;
+        color: #8c51ff !important;
+        padding: 0 17px;
+        font-size: 18px;
+        transition: color .12s ease-in-out;
+        font-weight: 500;
+        border-radius: 3px 3px 0 0;
+        background-color: #fff;
     }
 }

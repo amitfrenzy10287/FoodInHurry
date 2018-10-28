@@ -1,0 +1,33 @@
+.SubNavItem{
+	display: inline-block;
+    list-style: none;
+}
+
+.SubNavItem a{
+	color: #9646ff;
+    text-decoration: none;
+    padding: 0px 16px 17px 13px;
+    line-height: 61px;
+    text-align: justify;
+}
+
+.SubNavItem a.active{
+	border-bottom: 4px solid #9891ff; 
+}
+
+@media (max-width: 760px){
+	
+	.SubNavItem a{
+		color: #ffffff;
+	    text-decoration: none;
+	    padding: 0px 16px 17px 13px;
+	    line-height: 61px;
+	    text-align: justify;
+	}
+	.SubNavItem a.active{
+		color: #ffffff;
+		border:none;
+	}	
+}
+
+        

@@ -2,19 +2,20 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware, compose, combineReducers } from "redux"; 
-import createSagaMiddleware from "redux-saga";
-// import 'bootstrap/scss/bootstrap.scss';
-// import 'jquery/dist/jquery.min.js';
-// import 'bootstrap/dist/js/bootstrap.min.js';
-import './index.css'; 
+import { createStore, applyMiddleware, compose, combineReducers } from "redux";
+// import thunk from "redux-thunk";
+// import createSagaMiddleware from "redux-saga";
+import 'bootstrap/scss/bootstrap.scss'; 
+import 'font-awesome/scss/font-awesome.scss';
+// import '../node_modules/font-awesome/css/font-awesome.min.css';
+
+import "./index.css";
 import App from "./App";
 import registerServiceWorker from "./registerServiceWorker"; 
-import movieBookingReducer from "./store/reducers/movieBooking";
-import orderReducer from "./store/reducers/order";
+// import movieBookingReducer from "./store/reducers/movieBooking";
+// import orderReducer from "./store/reducers/order";
 import authReducer from "./store/reducers/auth";
-// import { watchAuth, watchMovieBooking, watchOrder } from "./store/sagas"; 
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+// import { watchAuth, watchMovieBooking, watchOrder } from "./store/sagas";
 
 const composeEnhancers =
   process.env.NODE_ENV === "development"
@@ -22,37 +23,28 @@ const composeEnhancers =
     : null || compose;
 
 const rootReducer = combineReducers({ 
-  movieBooking:movieBookingReducer,
-  order: orderReducer,
+  // movieBooking:movieBookingReducer,
+  // order: orderReducer,
   auth: authReducer
 });
 
-const sagaMiddleware = createSagaMiddleware();
+// const sagaMiddleware = createSagaMiddleware();
 
 const store = createStore(
-  rootReducer,
-  composeEnhancers(applyMiddleware(sagaMiddleware))
+  rootReducer
 );
 
 // sagaMiddleware.run(watchAuth);
 // sagaMiddleware.run(watchMovieBooking);
 // sagaMiddleware.run(watchOrder);
-const theme = createMuiTheme({
-   typography: {
-     useNextVariants: true,
-   },
- });
 
-const app = ( 
-  
+const app = (
   <Provider store={store}>
-    <MuiThemeProvider theme={theme}>
     <BrowserRouter>
       <App />
-    </BrowserRouter> 
-    </MuiThemeProvider>
-  </Provider>  
+    </BrowserRouter>
+  </Provider>
 );
 
-ReactDOM.render(app, document.getElementById("froot"));
+ReactDOM.render(app, document.getElementById("root"));
 registerServiceWorker();
